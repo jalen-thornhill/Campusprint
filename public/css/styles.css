@@ -1,0 +1,73 @@
+/*
+ * File: styles.css
+ * Author: Jalen Thornhill
+ * Created: 2026-09-25
+ * Last Modified: 2026-09-26
+ */
+
+body{
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    background-color: #f4f6f8;
+    color: #23395d;
+}
+
+
+header, main, footer {
+  /* keeping the page content centred with consistent spacing. */
+
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px; 
+}
+
+
+section{
+    background-color: white;
+    padding: 24px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+#priceRes {
+  white-space: pre-line;
+}
+
+
+#priceCalculator label {
+  display: block;
+  margin-bottom: 6px;
+  
+}
+
+#priceCalculator input,
+#priceCalculator select {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #64748b;
+  border-radius: 4px;
+
+}
+
+
+#priceCalculator input:focus-visible,
+#priceCalculator select:focus-visible,
+#priceCalculator button:focus-visible {
+  outline: 3px solid #23395d;
+  outline-offset: 3px;
+}
+
+
+#priceCalculator button {
+  background-color: #23395d;
+  color: white;
+  font: inherit;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

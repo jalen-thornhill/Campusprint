@@ -82,15 +82,26 @@ provide guidance and estimates, not read live campus account balances.
 
 
 
-\## Technology
+## Technology
 
+- Frontend: HTML, CSS, and JavaScript.
+- Server: Node.js with Express.
+- Database: SQLite is planned but has not been connected yet.
 
+## Running locally
 
-HTML, CSS, and JavaScript are planned for the frontend.
+With Node.js and npm installed, open Command Prompt in the CampusPrint
+project folder. For a fresh checkout, run `npm install` first to install
+the project's dependencies.
 
-Server and database tools have not been selected.
+Start the development server:
 
+```bat
+npm start
+```
 
+Keep Command Prompt running and open http://127.0.0.1:3000 in your browser.
+Press **Ctrl+C** in Command Prompt to stop the server.
 
 \## Development data
 
