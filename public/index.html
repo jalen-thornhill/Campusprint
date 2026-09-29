@@ -2,7 +2,7 @@
   File: index.html
   Author: Jalen Thornhill
   Created: 2026-09-25
-  Last Modified: 2026-09-26
+  Last Modified: 2026-09-28
 -->
 
 
@@ -15,6 +15,7 @@
   <title>CampusPrint</title>
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/calculator.js" defer></script>
+  <script src="js/request.js" defer></script>
 </head>
 <body>
   <header>
@@ -101,13 +102,12 @@
 
     <section>
       <h2>Request assisted printing</h2>
-      <p>Bring your document on a USB drive for assisted printing.</p>
-      <p>This form is under development. Requests cannot be submitted yet.</p>
+      <p>Check your printing details below. Requests are not saved or submitted yet..</p>
       <form action="" id="printRequest">
         <label for="customerName">Name</label>
         <input type="text" id="customerName" name="customerName" required>
 
-        <label for="customerEmail">email</label>
+        <label for="customerEmail">Email</label>
         <input type="email" id="customerEmail" name="customerEmail" required>
 
 
@@ -135,9 +135,14 @@
 
 
 
-        <button type="submit" disabled>Submit request — coming soon</button>
+        <button type="submit" >Check Details</button>
       </form>
+      <p id="requestMsg" aria-live="polite"></p>
+    
     </section>
+
+
+    
   </main>
 
 

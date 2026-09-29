@@ -35,14 +35,17 @@ section{
 }
 
 
-#priceCalculator label {
+#priceCalculator label ,
+#printRequest label {
   display: block;
   margin-bottom: 6px;
   
 }
 
 #priceCalculator input,
-#priceCalculator select {
+#priceCalculator select,
+#printRequest input,
+#printRequest select {
   width: 100%;
   box-sizing: border-box;
   font: inherit;
@@ -56,13 +59,17 @@ section{
 
 #priceCalculator input:focus-visible,
 #priceCalculator select:focus-visible,
-#priceCalculator button:focus-visible {
+#priceCalculator button:focus-visible,
+#printRequest input:focus-visible,
+#printRequest select:focus-visible,
+#printRequest button:focus-visible {
   outline: 3px solid #23395d;
   outline-offset: 3px;
 }
 
 
-#priceCalculator button {
+#priceCalculator button,
+#printRequest button {
   background-color: #23395d;
   color: white;
   font: inherit;
@@ -70,4 +77,9 @@ section{
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+
+#requestMsg{
+  white-space: pre-line;
 }
