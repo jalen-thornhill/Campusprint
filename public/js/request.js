@@ -6,11 +6,14 @@
  */
 const printMessage = document.getElementById('requestMsg');
 const  requestForm = document.getElementById('printRequest');
+const submitButton = requestForm.querySelector('button[type="submit"]');
+let isSubmitting = false;
 
 
-requestForm.addEventListener('submit', (event) => {
+requestForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
+    if(isSubmitting) return;
 
     const customerName = document.getElementById("customerName").value.trim();
     if(customerName === ""){
@@ -64,19 +67,62 @@ requestForm.addEventListener('submit', (event) => {
         return;
     }
 
-                    printMessage.textContent = `Request preview — not saved or submitted
-                    Name: ${customerName}
-                    Email: ${customerEmail}
-                    Pages per copy: ${requestPages}
-                    Copies: ${requestCopies}
-                    Print color: ${colorLabel}
-                    Sidedness: ${sidenessLabel}
 
-                    Bring your document on a USB drive for assisted printing.`;
+    const details = {
+    customerName: customerName,
+    customerEmail: customerEmail,
+    requestPages: requestPages,
+    requestCopies: requestCopies,
+    requestColor: requestColor,
+    requestSideness: requestSideness
+};
+
+    isSubmitting = true;
+    submitButton.disabled = true;
+    submitButton.textContent = "Submitting...";
+    printMessage.textContent= "Submitting your request...";
+try {
+    const response = await fetch("/api/request", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(details)
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+        printMessage.textContent = result.message;
+        return;
+    }
+
+
+
+
+
+    const totalBBD = result.totalCost / 100;
+
+
+    printMessage.textContent= `request saved
+    request number: ${result.requestId}
+    estimated cost: ${totalBBD.toFixed(2)} BBD
+    bring your document on the USB drive for assisted printing.`;
+    
+} catch (error) {
+    printMessage.textContent =
+        "Could not confirm submission. Check that the server is running.";
+} finally{
+    isSubmitting = false;
+    submitButton.disabled = false;
+    submitButton.textContent = "Submit Request";
+}
 })
 
 
 requestForm.addEventListener('input', () => {
-    printMessage.textContent = "";
+
+    if(!isSubmitting)  printMessage.textContent = "";
+    
 });
 
